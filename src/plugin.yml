@@ -1,0 +1,6 @@
+name: compass
+author: SexOffenderSally/beans42
+version: 1.0
+main: me.beans42.compass.compass
+commands:
+    compass: {}
