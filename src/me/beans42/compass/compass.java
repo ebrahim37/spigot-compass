@@ -17,15 +17,13 @@ public class compass extends JavaPlugin implements Listener {
 		getServer().getPluginManager().registerEvents(this, this);
 		new BukkitRunnable() {
 			public void run() {
-					for (HashMap.Entry<Player, Player> element : hm.entrySet()) {
-						final Player tracker = element.getKey();
-						final Player target = element.getValue();
-						
-						if (!tracker.isOnline() || !target.isOnline()) //if player or target is offline
-							continue;
-						else
-							tracker.setCompassTarget(target.getLocation());
-					}
+				for (HashMap.Entry<Player, Player> element : hm.entrySet()) {
+					final Player tracker = element.getKey();
+					final Player target = element.getValue();
+					
+					if (tracker.isOnline() && target.isOnline())
+						tracker.setCompassTarget(target.getLocation());
+				}
 			}
 		}.runTaskTimer(this, 5L, 20L);
 	}
